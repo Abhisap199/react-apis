@@ -14,20 +14,18 @@ import {Link } from 'react-router-dom'
      componentDidMount(){
         const id=this.props.match.params.id
         //const userId=this.props.history.location.key      
-        axios.get(`https://jsonplaceholder.typicode.com/users/${this.props.location.state.userId}`)
-        .then((response)=>{
-            const user= response.data
-            this.setState({user})
-            
-            
-        })
-        console.log(this.props);
         axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
         .then((response)=>{
             const post=response.data
             this.setState({post})
+
+                axios.get(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
+                .then((response)=>{
+                    const user= response.data
+                    this.setState({user})
+                })
         })
-        axios.get(`https://jsonplaceholder.typicode.com/comments?postId=${id}`)
+        axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
         .then((response)=>{
             const comments=response.data
             this.setState({comments})
@@ -48,7 +46,7 @@ import {Link } from 'react-router-dom'
                   }
               </ul>
               <hr/>
-              <Link to={`/userlist/${this.state.user.id}`}>More post of author:{this.state.user.name}</Link>
+              <Link to={`/users/${this.state.user.id}`}>More post of author:{this.state.user.name}</Link>
             </div>
         )
     }

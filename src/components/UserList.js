@@ -24,7 +24,7 @@ import {Link} from 'react-router-dom'
                 <h1>User List : {this.state.users.length}</h1>
               <ul>
               {
-                  this.state.users.map(e => <li key={e.id}><Link to={`userlist/${e.id}`}>{e.name}</Link></li>)
+                  this.state.users.map(e => <li key={e.id}><Link to={`users/${e.id}`}>{e.name}</Link></li>)
               }
               </ul>  
             </div>

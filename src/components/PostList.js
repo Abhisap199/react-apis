@@ -15,8 +15,6 @@ import {Link} from 'react-router-dom'
            const posts = response.data
            this.setState({posts})
        })
-       console.log(this.props);
-       
      }
     render() {
         return (
@@ -24,7 +22,7 @@ import {Link} from 'react-router-dom'
               <h1>Total posts:{this.state.posts.length}</h1>
               <ul>
                   {
-                      this.state.posts.map(e =><li key={e.id}><Link to={{pathname : `/postlist/${e.id}`,state:{userId:e.userId}}}>{e.title}</Link></li>)
+                      this.state.posts.map(e =><li key={e.id}><Link to={`/posts/${e.id}`}>{e.title}</Link></li>)
                   }
               </ul>
             </div>

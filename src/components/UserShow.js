@@ -35,7 +35,7 @@ import {Link} from 'react-router-dom'
             <h2>POSTS WRITTEN BY USER</h2>
             <ul>
                 {
-                    this.state.posts.map(e =><li key={e.id}><Link to={{pathname : `/postlist/${e.id}`,state:{userId:e.userId}}}>{e.title}</Link></li>)
+                    this.state.posts.map(e =><li key={e.id}><Link to={`/posts/${e.id}`}>{e.title}</Link></li>)
                 }
             </ul>
             </div>

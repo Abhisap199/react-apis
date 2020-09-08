@@ -10,15 +10,15 @@ class App extends Component {
   render() {
     return (
      <BrowserRouter>
-     <Link to='/home'>Home</Link> | 
-     <Link to='/userlist'>Users</Link> |
-     <Link to='/postlist'>Posts</Link>
+     <Link to='/'>Home</Link> | 
+     <Link to='/users'>Users</Link> |
+     <Link to='/posts'>Posts</Link>
 
      <Route path='/' component={Home} exact={true}/>
-     <Route path='/userlist' component={UserList} exact={true}/>
-     <Route path='/userlist/:id' component={UserShow}/>
-     <Route path='/postlist' component={PostList} exact={true}/>
-     <Route path='/postlist/:id' component={PostShow}/>
+     <Route path='/users' component={UserList} exact={true}/>
+     <Route path='/users/:id' component={UserShow}/>
+     <Route path='/posts' component={PostList} exact={true}/>
+     <Route path='/posts/:id' component={PostShow}/>
      </BrowserRouter>
     )
   }
